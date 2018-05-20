@@ -118,9 +118,10 @@ def board(bot, update):
             master_counter += 1
 
         a=" نتیجه نهایی "+str(repeat)+" بار آزمایش "
-        b=" موارد برد هنگام عوض نکردن گزینه: " + str(first_choice / repeat * 100) + "% "
-        c=" موارد برد با عوض کردن گزینه: " + str(sec_choice / repeat * 100) + "% "
-        d=" موارد برد با دوبار عوض کردن گزینه: " + str(rechoice / repeat * 100) + "% "
+
+        b=" موارد برد هنگام عوض نکردن گزینه: " + str(round(first_choice / repeat * 100,2)) + "% "
+        c=" موارد برد با عوض کردن گزینه: " + str(round(sec_choice / repeat * 100,2)) + "% "
+        d=" موارد برد با دوبار عوض کردن گزینه: " + str(round(rechoice / repeat * 100,2)) + "% "
 
         bot.send_message(chat_id=id, text=a)
         bot.send_message(chat_id=id, text=b)
