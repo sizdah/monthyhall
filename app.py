@@ -48,7 +48,7 @@ def board(bot, update):
         first_choice = 0
         sec_choice = 0
         rechoice = 0
-     
+
         while master_counter < repeat:
 
             list = ["null", "null", "null"]
@@ -101,10 +101,10 @@ def board(bot, update):
 
             master_counter += 1
 
-        a="FINAL RESULTS:"
-        b="1.No change: " + str(first_choice / repeat * 100) + "% won"
-        c="2.Changed: " + str(sec_choice / repeat * 100) + "% won"
-        d="3.Choose Again: " + str(rechoice / repeat * 100) + "% won"
+        a=" نتیجه نهایی"+str(repeat)+" دفعات آزمایش "
+        b=" موارد برد هنگام عوض نکردن گزینه " + str(first_choice / repeat * 100) + "% "
+        c=" موارد برد با عوض کردن گزینه " + str(sec_choice / repeat * 100) + "% "
+        d=" موارد برد با دوبار عوض کردن گزینه " + str(rechoice / repeat * 100) + "% "
 
         bot.send_message(chat_id=id, text=a)
         bot.send_message(chat_id=id, text=b)
