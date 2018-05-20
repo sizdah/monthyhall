@@ -48,13 +48,7 @@ def board(bot, update):
         first_choice = 0
         sec_choice = 0
         rechoice = 0
-        while True:
-            try:
-                repeat = int(input("How many times do you want the test be repeated? "))
-                break
-            except:
-                pass
-
+     
         while master_counter < repeat:
 
             list = ["null", "null", "null"]
