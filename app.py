@@ -141,8 +141,10 @@ def echo(bot, update):
             ask_repeat = False
             board(bot,update)
         except:
-            update.message.reply_text("از دستور راهنمایی استفاده کنید")
-            update.message.reply_text("/start")
+            pass
+    else:
+        update.message.reply_text("از دستور راهنمایی استفاده کنید")
+        update.message.reply_text("/start")
 
 
 
