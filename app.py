@@ -86,12 +86,23 @@ def board(bot, update):
                     choose_again = me
 
 
-            file1.write("Test no: " + str(master_counter + 1)+"\n")
-            file1.write("first choice : " + str(c + 1)+"\n")
-            file1.write("Removed Option : " + str(omitted + 1)+"\n")
-            file1.write("Choice changed to : " + str(changed + 1)+"\n")
-            file1.write("Prize was in : " + str(prize + 1)+"\n")
-            file1.write("----------------------------"+"\n")
+            file1.write("Test no: " + str(master_counter + 1))
+            file1.write("\n")
+            file1.write("first choice : " + str(c + 1))
+            file1.write("\n")
+
+            file1.write("Removed Option : " + str(omitted + 1))
+            file1.write("\n")
+
+            file1.write("Choice changed to : " + str(changed + 1))
+            file1.write("\n")
+
+            file1.write("Prize was in : " + str(prize + 1))
+            file1.write("\n")
+
+            file1.write("----------------------------")
+            file1.write("\n")
+
 
 
 
