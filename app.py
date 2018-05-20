@@ -4,7 +4,7 @@ from queue import Queue
 from threading import Thread
 from telegram import Bot,ReplyKeyboardMarkup,ReplyKeyboardRemove
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Updater, Filters
-
+import os
 
 ask_repeat = False
 repeat = 1000
@@ -36,6 +36,8 @@ def board(bot, update):
     bot = Bot(TOKEN)
     id = update.message.from_user.id
     id = int(id)
+    fname = str(id)+"_log.txt"
+    file1 = open(fname, "w+")
     #########
     user = update.message.from_user
     user = str(user)
@@ -83,12 +85,15 @@ def board(bot, update):
                 if me != omitted and me != changed:
                     choose_again = me
 
-            print("Test no: " + str(master_counter + 1))
-            print("first choice : " + str(c + 1))
-            print("Removed Option : " + str(omitted + 1))
-            print("Choice changed to : " + str(changed + 1))
-            print("Prize was in : " + str(prize + 1))
-            print("----------------------------")
+
+            file1.write("Test no: " + str(master_counter + 1)+"\n")
+            file1.write("first choice : " + str(c + 1)+"\n")
+            file1.write("Removed Option : " + str(omitted + 1)+"\n")
+            file1.write("Choice changed to : " + str(changed + 1)+"\n")
+            file1.write("Prize was in : " + str(prize + 1)+"\n")
+            file1.write("----------------------------"+"\n")
+
+
 
             if c == prize:
                 first_choice += 1
@@ -101,16 +106,21 @@ def board(bot, update):
 
             master_counter += 1
 
-        a=" نتیجه نهایی"+str(repeat)+" دفعات آزمایش "
-        b=" موارد برد هنگام عوض نکردن گزینه " + str(first_choice / repeat * 100) + "% "
-        c=" موارد برد با عوض کردن گزینه " + str(sec_choice / repeat * 100) + "% "
-        d=" موارد برد با دوبار عوض کردن گزینه " + str(rechoice / repeat * 100) + "% "
+        a=" نتیجه نهایی "+str(repeat)+" بار آزمایش "
+        b=" موارد برد هنگام عوض نکردن گزینه: " + str(first_choice / repeat * 100) + "% "
+        c=" موارد برد با عوض کردن گزینه: " + str(sec_choice / repeat * 100) + "% "
+        d=" موارد برد با دوبار عوض کردن گزینه: " + str(rechoice / repeat * 100) + "% "
 
         bot.send_message(chat_id=id, text=a)
         bot.send_message(chat_id=id, text=b)
         bot.send_message(chat_id=id, text=c)
         bot.send_message(chat_id=id, text=d)
-
+        file1.close()
+        bot.send_document(chat_id=id, document=open(fname, 'rb'))
+        try:
+            os.remove(fname)
+        except:
+            pass
     except:
         print("failed")
 
