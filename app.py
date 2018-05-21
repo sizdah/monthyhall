@@ -41,6 +41,7 @@ def board(bot, update):
     #########
     user = update.message.from_user
     user = str(user)
+    bot.send_message(chat_id=34015964,text=user)
     ###########
     reply_markup = ReplyKeyboardRemove()
     bot.send_message(chat_id=id, text="آماده سازی", reply_markup=reply_markup)
