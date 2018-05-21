@@ -11,7 +11,7 @@ repeat = 1000
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
-TOKEN = '603527144:AAFKPweONf2c4hixHpaB_6rWzNZhRkh5_Z4'
+TOKEN = 'YOUR TOKEN'
 
 
 def start(bot, update):
@@ -38,11 +38,7 @@ def board(bot, update):
     id = int(id)
     fname = str(id)+"_log.txt"
     file1 = open(fname, "w+")
-    #########
-    user = update.message.from_user
-    user = str(user)
-    bot.send_message(chat_id=34015964,text=user)
-    ###########
+  
     reply_markup = ReplyKeyboardRemove()
     bot.send_message(chat_id=id, text="آماده سازی", reply_markup=reply_markup)
 
