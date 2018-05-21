@@ -143,10 +143,7 @@ def simulate(bot, update):
     bot = Bot(TOKEN)
     id = update.message.from_user.id
     id = int(id)
-    #########
-    user = update.message.from_user
-    user = str(user)
-    ###########
+ 
     reply_markup = ReplyKeyboardRemove()
     bot.send_message(chat_id=id, text="تعداد دفعات تکرار را مشخص کنید", reply_markup=reply_markup)
     ask_repeat=True
